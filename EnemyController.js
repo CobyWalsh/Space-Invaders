@@ -1,1 +1,9 @@
-export default class EnemyController {}
+export default class EnemyController {
+    constructor(canvas) {
+      this.canvas = canvas;
+   } 
+
+   draw(ctx) {
+    console.log("draw");
+   }
+}
