@@ -1,3 +1,4 @@
+import EnemyController from "./EnemyController.js";
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 
