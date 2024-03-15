@@ -34,10 +34,14 @@ export default class EnemyController {
             this.xVelocity = this.defaultXVelocity;
             this.yVelocity = 0;
             const rightMostEnemy = enemyRow[enemyRow.length - 1];
-            if (rightMostEnemy.x + rightMostEnemy.width >= this.canvas.width);
+            if (rightMostEnemy.x + rightMostEnemy.width >= this.canvas.width) {
             this.currentDirection = MovingDirection.downLeft;
             break;
         }
+    } else if (this.currentDirection === MovingDirection.downLeft) {
+        this.xVelocity = 0;
+        this.yVelocity = this.defaultYVelocity;
+     }  
     }
    }
 
