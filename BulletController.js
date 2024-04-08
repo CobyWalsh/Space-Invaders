@@ -12,7 +12,12 @@ export default class bulletController {
         this.shootSound.volume = 0.5;
     }
 
-    shoot(x,y, velocity, timeTillNextBulletAllowed = 0) {
-
-    }
-}
+    shoot(x, y, velocity, timeTillNextBulletAllowed = 0) {
+        if(
+            this.timeTillNextBulletAllowed <=0 && 
+            this.bullets.length < this.maxBulletsAtATime
+            ) {
+                const bullet = new Bullet(this.canvas, x, y, velocity, this.bulletColor);
+            }
+          }
+        }
