@@ -15,6 +15,9 @@ export default class bulletController {
     }
 
     draw(ctx) {
+        this.bullets = this.bullets.filter(bullet => bullet.y + bullet.width > 0);
+        console.log(this.bullets.length);
+
         this.bullets.forEach((bullet) => bullet.draw(ctx));
         if(this.timeTillNextBulletAllowed > 0) {
             this.timeTillNextBulletAllowed--;
