@@ -1,3 +1,5 @@
+import Bullet from "./Bullet.js";
+
 export default class bulletController {
     bullets = [];
     timeTillNextBulletAllowed = 0;
@@ -18,6 +20,12 @@ export default class bulletController {
             this.bullets.length < this.maxBulletsAtATime
             ) {
                 const bullet = new Bullet(this.canvas, x, y, velocity, this.bulletColor);
+                this.bullet.push(bullet);
+                if (this.soundEnabled) {
+                    this.shootSound.currentTime = 0;
+                    this.shootSound.play();
+                }
+                this.timeTillNextBulletAllowed = timeTillNextBulletAllowed;
             }
           }
         }
