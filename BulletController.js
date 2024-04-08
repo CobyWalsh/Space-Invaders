@@ -14,13 +14,20 @@ export default class bulletController {
         this.shootSound.volume = 0.5;
     }
 
+    draw(ctx) {
+        this.bullets.forEach((bullet) => bullet.draw(ctx));
+        if(this.timeTillNextBulletAllowed > 0) {
+            this.timeTillNextBulletAllowed--;
+        }
+    }
+
     shoot(x, y, velocity, timeTillNextBulletAllowed = 0) {
         if(
-            this.timeTillNextBulletAllowed <=0 && 
+            this.timeTillNextBulletAllowed <= 0 && 
             this.bullets.length < this.maxBulletsAtATime
             ) {
                 const bullet = new Bullet(this.canvas, x, y, velocity, this.bulletColor);
-                this.bullet.push(bullet);
+                this.bullets.push(bullet);
                 if (this.soundEnabled) {
                     this.shootSound.currentTime = 0;
                     this.shootSound.play();
