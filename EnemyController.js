@@ -70,6 +70,10 @@ export default class EnemyController {
             this.currentDirection = MovingDirection.downRight;
             break;
       }
+     }  else if(this.currentDirection === MovingDirection.downRight) {
+        if (this.moveDown(MovingDirection.right)) {
+            break;
+        }
      }
     }
    }
