@@ -1,5 +1,6 @@
 import Enemy from "./Enemy.js";
 import MovingDirection from "./MovingDirection.js";
+
 export default class EnemyController {
     enemyMap = [
         [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -14,15 +15,17 @@ export default class EnemyController {
     currentDirection = MovingDirection.right;
     xVelocity = 0;
     yVelocity = 0;
-    defaultXVelocity = 0;
+    defaultXVelocity = 1;
     defaultYVelocity = 1;
     moveDownTimerDefault = 30;
     moveDownTimer = this.moveDownTimerDefault;
     fireBulletTimerDefault = 100;
     fireBulletTimer = this.fireBulletTimerDefault;
     
-    constructor(canvas, enemyBulletController) {
+    constructor(canvas, enemyBulletController, playerBulletController) {
       this.canvas = canvas;
+      this.enemyBulletController = enemyBulletController;
+      
       this.createEnemies();
    } 
 
@@ -41,7 +44,7 @@ export default class EnemyController {
         const allEnemies = this.enemyRows.flat();
         const enemyIndex = Math.floor(Math.random() * allEnemies.length);
         const enemy = allEnemies[enemyIndex];
-        this.enemyBulletController.shoot(enemy.x, enemy.y, -3);
+        this.enemyBulletController.shoot(enemy.x + enemy.width / 2, enemy.y, -3);
         console.log(enemyIndex);
     }
    }
