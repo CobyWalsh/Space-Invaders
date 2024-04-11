@@ -45,8 +45,10 @@ export default class EnemyController {
                 // play a sound
                 enemyRow.splice(enemyIndex, 1);
             }
-        })
-    })
+        });
+    });
+
+    this.enemyRows = this.enemyRows.filter((enemyRow) => enemyRow.length > 0);
 }
 
    fireBullet() {
@@ -132,5 +134,9 @@ export default class EnemyController {
             }
         });
     });
+   }
+
+   collideWith(sprite) {
+    return this.enemyRows.flat().some((enemy) => enemy.collideWith(sprite));
    }
 }
