@@ -39,6 +39,8 @@ export default class EnemyController {
    }
 
    collisionDetection() {
+    if (!this.playerBulletController) return;
+
     this.enemyRows.forEach((enemyRow) => {
         enemyRow.forEach((enemy, enemyIndex) => {
             if (this.playerBulletController.collideWith(enemy)) {

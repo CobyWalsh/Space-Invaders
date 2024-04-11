@@ -24,4 +24,4 @@ playerBulletController.draw(ctx);
 enemyBulletController.draw(ctx);
 }
 
-setInterval(game, 1000/60);
+setInterval(game, 1000 / 60);
