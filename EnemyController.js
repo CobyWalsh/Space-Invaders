@@ -26,6 +26,9 @@ export default class EnemyController {
       this.canvas = canvas;
       this.enemyBulletController = enemyBulletController;
       this.playerBulletController = playerBulletController;
+
+      this.enemyDeathSound = new Audio('audio/enemy-death.wav')
+      this.enemyDeathSound.volume = 0.5;
       this.createEnemies();
    } 
 
@@ -44,7 +47,8 @@ export default class EnemyController {
     this.enemyRows.forEach((enemyRow) => {
         enemyRow.forEach((enemy, enemyIndex) => {
             if (this.playerBulletController.collideWith(enemy)) {
-                // play a sound
+                this.enemyDeathSound.currentTIme = 0;
+                this.enemyDeathSound.play();
                 enemyRow.splice(enemyIndex, 1);
             }
         });
