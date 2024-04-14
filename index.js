@@ -35,7 +35,7 @@ console.log(isGameOver);
 function displayGameOver() {
   if (isGameOver) {
     let text = didWin ? "You Win" : "Game Over";
-    let textOffSet = didWin ? 3.5 : 5;
+    let textOffSet =didWin ? 3.5 : 5;
 
     ctx.fillStyle = "red";
     ctx.font = "70px Arial";
@@ -53,6 +53,11 @@ function checkGameOver() {
     }
 
     if (enemyController.collideWith(player)) {
+        isGameOver = true;
+    }
+
+    if (enemyController.enemyRows.length === 0) {
+        didWin = true;
         isGameOver = true;
     }
 
