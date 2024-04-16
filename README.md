@@ -11,7 +11,7 @@ A simple fun one player shooting game for anyone to enjoy!
 **[Installation Instructions](#installation)**<br>
 **[License](#license)**<br>
 **[Coded With](#coded-with)**<br>
-**[Thank You](#thanks)**<br>
+**[Thank You](#Thank-You)**<br>
 
 # User Story
 
